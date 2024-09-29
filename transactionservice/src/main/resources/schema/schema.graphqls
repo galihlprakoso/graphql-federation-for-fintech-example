@@ -1,0 +1,14 @@
+type Transaction {
+    id: ID!
+    accountId: ID!
+    amount: Float
+}
+
+type Query {
+    transactions: [Transaction]
+}
+
+type Account @key(fields: "id") @extends {
+    id: ID! @external
+    transactions: [Transaction]
+}
